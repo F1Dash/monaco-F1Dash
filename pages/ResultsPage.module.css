@@ -1,0 +1,60 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 20px; /* Add some space below the title */
+}
+
+.resultsTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.resultsTable th,
+.resultsTable td {
+  border: 1px solid #ccc; /* Change border color to light gray */
+  padding: 12px; /* Increase padding for better readability */
+  text-align: center; /* Center align text */
+}
+
+.resultsTable th {
+  background-color: #000000; /* Darken header background color */
+  color: #fff; /* White text color */
+}
+
+.resultsTable tbody tr:nth-child(even) {
+  background-color: #000000; /* Light gray background color for even rows */
+}
+
+.resultsTable tbody tr:nth-child(odd) {
+  background-color: #000000; /* White background color for odd rows */
+}
+
+.trackName {
+  text-align: center;
+  margin-top: 20px; /* Add some space above and below the track name */
+  margin-bottom: 20px;
+}
+
+.fastestLap {
+  text-align: center;
+  margin-top: 20px; /* Add some space above and below the fastest lap section */
+  margin-bottom: 20px;
+}
+
+.footer {
+  text-align: center;
+  margin-top: 20px; /* Add some space above the footer */
+}
+
+.divider {
+  margin-top: 20px; /* Add some space above the divider */
+  margin-bottom: 20px; /* Add some space below the divider */
+  border: none; /* Remove default border */
+  border-top: 1px solid #ccc; /* Add top border with light gray color */
+}

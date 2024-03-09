@@ -1,0 +1,74 @@
+.header {
+    background-color: #000000;
+    color: #fff;
+    padding: 10px 10px; /* Adjust the padding as needed */
+}
+
+.nav {
+    display: flex;
+    justify-content: center;
+}
+
+.navList {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.navItem {
+    margin-right: 1px;
+}
+
+/* Header.module.css */
+.navLink {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    margin-right: 20px; /* Add margin between navigation items */
+    transition: color 0.3s ease;
+}
+
+.navLink:hover {
+    color: #ffcc00; /* Change color on hover */
+}
+
+@font-face {
+    font-family: 'Formula1';
+    src: url('/fonts/Formula1.ttf') format('truetype'); /* Adjusted font URL */
+}
+
+.centered-text {
+    text-align: center;
+}
+
+.headerContent {
+    display: flex;
+    align-items: flex-start; /* Align items at the start of the container */
+}
+
+.welcomeMessage {
+    font-size: 16px; /* Adjust the font size as needed */
+    margin-right: 20px; /* Adjust the margin as needed */
+    margin-top: -20px; /* Adjust the margin-top to raise the text */
+}
+
+.headerText {
+    margin-top: 0px; /* Adjust the margin-top to lower the text */
+}
+
+.header {
+    padding: 01px 0px; /* Adjust the padding as needed */
+  }
+
+  @font-face {
+    font-family: 'Formula1';
+    src: url('../public/fonts/Formula1.ttf') format('truetype');
+  }
+  
+
+  .header {
+    font-family: 'Formula1', sans-serif;
+    /* Other styles for your header */
+  }
+  

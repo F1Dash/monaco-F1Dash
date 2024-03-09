@@ -1,5 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import Head from "next/head";
+import Script from 'next/script';
+import Link from 'next/link';
 import moment from "moment";
 import ResponsiveTable from "@monaco/components/ResponsiveTable";
 import Driver, { TableHeader } from "@monaco/components/Driver";
@@ -7,6 +9,8 @@ import Radio from "@monaco/components/Radio";
 import Map from "@monaco/components/Map";
 import Input from "@monaco/components/Input";
 import SpeedTrap, { speedTrapColumns } from "@monaco/components/SpeedTrap";
+import Header from './header'
+import Footer from "../components/Footer";
 
 const f1Url = "https://livetiming.formula1.com";
 
@@ -92,10 +96,11 @@ export default function Home() {
     ws.addEventListener("close", () => {
       setConnected(false);
       setBlocking((isBlocking) => {
-        if (!retry.current && !isBlocking)
+        if (!retry.current && !isBlocking) {
           retry.current = window.setTimeout(() => {
             initWebsocket(handleMessage);
           }, 1000);
+        }
       });
     });
 
@@ -158,41 +163,63 @@ export default function Home() {
     if (messageCount > 0) {
       try {
         new Audio("/notif.mp3").play();
-      } catch (e) {}
+      } catch (e) {
+        // Handle error
+      }
     }
   }, [messageCount]);
 
-  if (!connected)
+  if (!connected) {
     return (
       <>
         <Head>
           <title>No connection</title>
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="Stay updated with the latest Formula 1 races, live timings, and news at F1Dash.net. Your ultimate destination for F1 updates." />
+        <meta name="keywords" content="Formula 1, F1, Live Timing, Race Updates, F1 News, F1Dash, F1 Dashboard, F1TV" />
+        <meta property="og:title" content="F1Dash.net - Your Ultimate Destination for Live Formula 1 Updates" />
+        <meta property="og:description" content="Stay updated with the latest Formula 1 races, live timings, and news at F1Dash.net. Your ultimate destination for F1 updates." />
+        <meta property="og:url" content="https://www.F1Dash.net" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="/iconsocial.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:card" content="summary_large_image"/>
+        <meta name="twitter:title" content="F1Dash.net - Your Ultimate Destination for Live Formula 1 Updates"/>
+        <meta name="twitter:description" content="Stay updated with the latest Formula 1 races, live timings, and news at F1Dash.net. Your ultimate destination for F1 updates."/>
+        <meta name="twitter:image" content="/iconsocial.png" />
+        <meta name="twitter:site" content="@OfficialF1Dash" />
+        <meta name="twitter:creator" content="@OfficialF1Dash" />
+        <meta name="twitter:url" content="https://www.F1Dash.net"/>
         </Head>
         <main>
-          <div
-            style={{
-              width: "100vw",
-              height: "100vh",
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            <p style={{ marginBottom: "var(--space-4)" }}>
-              <strong>NO CONNECTION</strong>
-            </p>
-            <button onClick={() => window.location.reload()}>RELOAD</button>
-          </div>
         </main>
       </>
     );
+  }
 
   if (Date.now() < delayTarget)
-    return (
+     return (
       <>
         <Head>
-          <title>Syncing</title>
+          <title>No connection</title>
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="Stay updated with the latest Formula 1 races, live timings, and news at F1Dash.net. Your ultimate destination for F1 updates." />
+        <meta name="keywords" content="Formula 1, F1, Live Timing, Race Updates, F1 News, F1Dash, F1 Dashboard, F1TV" />
+        <meta property="og:title" content="F1Dash.net - Your Ultimate Destination for Live Formula 1 Updates" />
+        <meta property="og:description" content="Stay updated with the latest Formula 1 races, live timings, and news at F1Dash.net. Your ultimate destination for F1 updates." />
+        <meta property="og:url" content="https://www.F1Dash.net" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="/iconsocial.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:card" content="summary_large_image"/>
+        <meta name="twitter:title" content="F1Dash.net - Your Ultimate Destination for Live Formula 1 Updates"/>
+        <meta name="twitter:description" content="Stay updated with the latest Formula 1 races, live timings, and news at F1Dash.net. Your ultimate destination for F1 updates."/>
+        <meta name="twitter:image" content="/iconsocial.png" />
+        <meta name="twitter:site" content="@OfficialF1Dash" />
+        <meta name="twitter:creator" content="@OfficialF1Dash" />
+        <meta name="twitter:url" content="https://www.F1Dash.net"/>
         </Head>
         <main>
           <div
@@ -237,6 +264,23 @@ export default function Home() {
       <>
         <Head>
           <title>No session</title>
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="Stay updated with the latest Formula 1 races, live timings, and news at F1Dash.net. Your ultimate destination for F1 updates." />
+        <meta name="keywords" content="Formula 1, F1, Live Timing, Race Updates, F1 News, F1Dash, F1 Dashboard, F1TV" />
+        <meta property="og:title" content="F1Dash.net - Your Ultimate Destination for Live Formula 1 Updates" />
+        <meta property="og:description" content="Stay updated with the latest Formula 1 races, live timings, and news at F1Dash.net. Your ultimate destination for F1 updates." />
+        <meta property="og:url" content="https://www.F1Dash.net" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="/iconsocial.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:card" content="summary_large_image"/>
+        <meta name="twitter:title" content="F1Dash.net - Your Ultimate Destination for Live Formula 1 Updates"/>
+        <meta name="twitter:description" content="Stay updated with the latest Formula 1 races, live timings, and news at F1Dash.net. Your ultimate destination for F1 updates."/>
+        <meta name="twitter:image" content="/iconsocial.png" />
+        <meta name="twitter:site" content="@OfficialF1Dash" />
+        <meta name="twitter:creator" content="@OfficialF1Dash" />
+        <meta name="twitter:url" content="https://www.F1Dash.net"/>
         </Head>
         <main>
           <div
@@ -250,9 +294,9 @@ export default function Home() {
             }}
           >
             <p style={{ marginBottom: "var(--space-4)" }}>
-              <strong>NO SESSION</strong>
+              <strong>NO LIVE SESSION</strong>
             </p>
-            <p>Come back later when there is a live session</p>
+            <p>Please Come back later when there is a live session</p>
           </div>
         </main>
       </>
@@ -284,8 +328,23 @@ export default function Home() {
           {SessionInfo.Meeting.Circuit.ShortName}: {SessionInfo.Name}
         </title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="Stay updated with the latest Formula 1 races, live timings, and news at F1Dash.net. Your ultimate destination for F1 updates." />
+        <meta name="keywords" content="Formula 1, F1, Live Timing, Race Updates, F1 News, F1Dash, F1 Dashboard, F1TV" />
+        <meta property="og:title" content="F1Dash.net - Your Ultimate Destination for Live Formula 1 Updates" />
+        <meta property="og:description" content="Stay updated with the latest Formula 1 races, live timings, and news at F1Dash.net. Your ultimate destination for F1 updates." />
+        <meta property="og:url" content="https://www.F1Dash.net" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="/iconsocial.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:card" content="summary_large_image"/>
+        <meta name="twitter:title" content="F1Dash.net - Your Ultimate Destination for Live Formula 1 Updates"/>
+        <meta name="twitter:description" content="Stay updated with the latest Formula 1 races, live timings, and news at F1Dash.net. Your ultimate destination for F1 updates."/>
+        <meta name="twitter:image" content="/iconsocial.png" />
+        <meta name="twitter:site" content="@OfficialF1Dash" />
+        <meta name="twitter:creator" content="@OfficialF1Dash" />
+        <meta name="twitter:url" content="https://www.F1Dash.net"/>
       </Head>
-      <main>
         <>
           <div
             style={{
@@ -329,8 +388,8 @@ export default function Home() {
                 <p style={{ marginRight: "var(--space-4)" }}>
                   Remaining: {extrapolatedTimeRemaining}
                 </p>
-              )}
-            </div>
+              )}	  
+			  </div>
             <div
               style={{
                 display: "flex",
@@ -341,7 +400,7 @@ export default function Home() {
                 Data updated: {moment.utc(updated).format("HH:mm:ss.SSS")} UTC
               </p>
               <p style={{ color: "limegreen", marginRight: "var(--space-4)" }}>
-                CONNECTED
+                CONNECTED to F1Dash.net
               </p>
               <form
                 onSubmit={(e) => {
@@ -368,7 +427,7 @@ export default function Home() {
                 target="_blank"
                 style={{ color: "grey" }}
               >
-                tdjsnelling/monaco
+                GitHub
               </a>
             </div>
           </div>
@@ -679,7 +738,7 @@ export default function Home() {
               }}
             >
               <p>
-                <strong>SPEED TRAP DATA</strong>
+              <strong>SPEED TRAP DATA</strong>
               </p>
             </div>
             <div
@@ -724,10 +783,10 @@ export default function Home() {
         <p
           style={{ color: "grey", padding: "var(--space-3)", fontSize: "11px" }}
         >
-          f1.tdjs.tech is not associated in any way with Formula 1 or any other
+          f1dash.net is not associated in any way with Formula 1 or any other
           Formula 1 companies. All data displayed is publicly available and used
           in a non-commercial, fair use setting. Map data provided by
-          api.multiviewer.app.
+          api.multiviewer.app. F1Dash.net is a public fork of 'monaco' created by tdjsnelling.
         </p>
       </main>
     </>

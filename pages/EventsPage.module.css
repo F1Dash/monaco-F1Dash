@@ -1,0 +1,65 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .title {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .eventContainer {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .eventTitle {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .eventInfo {
+    margin-bottom: 5px;
+  }
+  
+  .eventGraphic {
+    margin-top: 10px;
+    width: 100px; /* Adjust as needed */
+    height: 100px; /* Adjust as needed */
+    background-color: #eee; /* Placeholder background color */
+  }
+  
+  .otherEventsContainer {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .otherEventsTitle {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .otherEvents {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .otherEvent {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+  }
+  
+  .otherEvent h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+  
